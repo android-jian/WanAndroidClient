@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="top.jowanxu.wanandroidclient">
+    package="top.androidjian.androidlearnclient">
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
@@ -20,7 +20,7 @@
     <uses-permission android:name="android.permission.READ_CONTACTS" />
 
     <application
-        android:name=".base.BaseApplication"
+        android:name="top.androidjian.androidlearnclient.base.BaseApplication"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
@@ -28,7 +28,7 @@
         android:supportsRtl="true"
         android:theme="@style/SplashTheme">
         <activity
-            android:name=".ui.activity.SplashActivity"
+            android:name="top.androidjian.androidlearnclient.ui.activity.SplashActivity"
             android:configChanges="keyboard|screenSize|orientation|layoutDirection"
             android:label="@string/app_name"
             android:screenOrientation="portrait">
@@ -39,7 +39,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".ui.activity.MainActivity"
+            android:name="top.androidjian.androidlearnclient.ui.activity.MainActivity"
             android:configChanges="keyboard|screenSize|orientation|layoutDirection"
             android:label="@string/app_name"
             android:launchMode="singleTask"
@@ -47,31 +47,31 @@
             android:theme="@style/AppTheme"
             android:windowSoftInputMode="adjustPan|stateHidden" />
         <activity
-            android:name=".ui.activity.ContentActivity"
+            android:name="top.androidjian.androidlearnclient.ui.activity.ContentActivity"
             android:configChanges="keyboard|screenSize|orientation|layoutDirection"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme"
             android:windowSoftInputMode="adjustPan|stateHidden" />
         <activity
-            android:name=".ui.activity.SearchActivity"
+            android:name="top.androidjian.androidlearnclient.ui.activity.SearchActivity"
             android:configChanges="keyboard|screenSize|orientation|layoutDirection"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme"
             android:windowSoftInputMode="adjustPan|stateHidden" />
         <activity
-            android:name=".ui.activity.TypeContentActivity"
+            android:name="top.androidjian.androidlearnclient.ui.activity.TypeContentActivity"
             android:configChanges="keyboard|screenSize|orientation|layoutDirection"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme"
             android:windowSoftInputMode="adjustPan|stateHidden" />
         <activity
-            android:name=".ui.activity.LoginActivity"
+            android:name="top.androidjian.androidlearnclient.ui.activity.LoginActivity"
             android:configChanges="keyboard|screenSize|orientation|layoutDirection"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme"
             android:windowSoftInputMode="adjustPan|stateHidden" />
         <activity
-            android:name=".ui.activity.AboutActivity"
+            android:name="top.androidjian.androidlearnclient.ui.activity.AboutActivity"
             android:configChanges="keyboard|screenSize|orientation|layoutDirection"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme"

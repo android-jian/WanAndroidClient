@@ -49,6 +49,9 @@ dependencies {
     implementation "com.gyf.barlibrary:barlibrary:$barlibrary_version"
     implementation "com.hyman:flowlayout-lib:$flowlayout_version"
     implementation "com.jakewharton.retrofit:retrofit2-kotlin-coroutines-experimental-adapter:$retrofit2_converter_kotlin_coroutines_version"
+    compile 'com.scwang.smartrefresh:SmartRefreshLayout:1.1.0-alpha-5'
+    compile 'com.scwang.smartrefresh:SmartRefreshHeader:1.1.0-alpha-5'//没有使用特殊Header，可以不加这行
+    compile 'com.android.support:appcompat-v7:25.3.1'//版本 23以上（必须）
 }
 kotlin {
     experimental {

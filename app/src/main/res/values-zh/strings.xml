@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">玩Android</string>
+    <string name="app_name">Love-Android</string>
     <string name="version_code">%1$s\n%2$s</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
     <!-- home -->
     <string name="title_home">首页</string>
     <string name="title_dashboard">知识体系</string>
+    <string name="title_name">我的</string>
     <string name="hot_title">Hot</string>
     <!--no data-->
     <string name="no_data">这里空空的…</string>
