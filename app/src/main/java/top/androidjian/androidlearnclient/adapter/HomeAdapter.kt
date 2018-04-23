@@ -15,7 +15,7 @@ class HomeAdapter(val context: Context, datas: MutableList<Datas>) :
             .setText(R.id.homeItemAuthor, item.author)
             .setText(R.id.homeItemType, item.chapterName)
             .addOnClickListener(R.id.homeItemType)
-            .setTextColor(R.id.homeItemType, context.resources.getColor(R.color.colorPrimary))
+            .setTextColor(R.id.homeItemType, context.resources.getColor(R.color.colorCardBg))
             .linkify(R.id.homeItemType)
             .setText(R.id.homeItemDate, item.niceDate)
             .setImageResource(
