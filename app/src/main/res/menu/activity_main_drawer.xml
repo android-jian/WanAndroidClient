@@ -13,4 +13,9 @@
         android:icon="@drawable/ic_action_about"
         android:title="@string/my_about"/>
 
+    <item
+        android:id="@+id/navigationViewLogout"
+        android:icon="@drawable/login_out"
+        android:title="@string/login_out"/>
+
 </menu>

@@ -35,23 +35,17 @@ class MainActivity : BaseActivity() {
         supportFragmentManager
     }
     /**
-     * check login for SharedPreferences
+     * 检查用户是否登录
      */
     private val isLogin: Boolean by Preference(Constant.LOGIN_KEY, false)
     /**
-     * local username
+     * 本地用户名
      */
     private val username: String by Preference(Constant.USERNAME_KEY, "")
 
-    /**
-     * login username
-     */
     private lateinit var navigationViewUsername: TextView
 
-    /**
-     * login or logout
-     */
-    private lateinit var navigationViewLogout: AppCompatButton
+    private lateinit var navigationViewLogout: MenuItem
 
     override fun setLayoutId(): Int = R.layout.activity_main
 
@@ -86,8 +80,8 @@ class MainActivity : BaseActivity() {
         }
         navigationViewUsername =
                 navigationView.getHeaderView(0).findViewById<TextView>(R.id.navigationViewUsername)
-        navigationViewLogout = navigationView.getHeaderView(0)
-            .findViewById<AppCompatButton>(R.id.navigationViewLogout)
+        navigationViewLogout = navigationView.menu.findItem(R.id.navigationViewLogout)
+
         navigationViewUsername.run {
             if (!isLogin) {
                 text = getString(R.string.not_login)
@@ -96,23 +90,18 @@ class MainActivity : BaseActivity() {
             }
         }
         navigationViewLogout.run {
-            text = if (!isLogin) {
+            title = if (!isLogin) {
                 getString(R.string.goto_login)
             } else {
                 getString(R.string.logout)
             }
-            setOnClickListener {
-                if (!isLogin) {
-                    Intent(this@MainActivity, LoginActivity::class.java).run {
-                        startActivityForResult(this, Constant.MAIN_REQUEST_CODE)
-                    }
-                } else {
-                    Preference.clear()
-                    navigationViewUsername.text = getString(R.string.not_login)
-                    text = getString(R.string.goto_login)
-                    homeFragment?.refreshData()
-                }
+
+            icon=if (!isLogin){
+                resources.getDrawable(R.drawable.login_in)
+            }else{
+                resources.getDrawable(R.drawable.login_out)
             }
+
         }
     }
 
@@ -129,28 +118,18 @@ class MainActivity : BaseActivity() {
                 }
                 return true
             }
-            R.id.menuHot -> {
-                if (currentIndex == R.id.menuHot) {
-                    commonUseFragment?.refreshData()
-                }
-                setFragment(R.id.menuHot)
-                currentIndex = R.id.menuHot
-                return true
-            }
         }
         return super.onOptionsItemSelected(item)
     }
 
-    /**
-     * Dispatch incoming result to the correct fragment.
-     */
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
         when (requestCode) {
             Constant.MAIN_REQUEST_CODE -> {
                 if (resultCode == RESULT_OK) {
                     navigationViewUsername.text = data?.getStringExtra(Constant.CONTENT_TITLE_KEY)
-                    navigationViewLogout.text = getString(R.string.logout)
+                    navigationViewLogout.title = getString(R.string.logout)
+                    navigationViewLogout.icon=resources.getDrawable(R.drawable.login_out)
                 }
                 homeFragment?.refreshData()
             }
@@ -234,7 +213,7 @@ class MainActivity : BaseActivity() {
                         this.show(it)
                     }
                 }
-                R.id.menuHot -> {
+                R.id.navigation_hot -> {
                     toolbar.title = getString(R.string.hot_title)
                     commonUseFragment?.let {
                         this.show(it)
@@ -264,7 +243,8 @@ class MainActivity : BaseActivity() {
         // other activity login
         if (isLogin && navigationViewUsername.text.toString() != username) {
             navigationViewUsername.text = username
-            navigationViewLogout.text = getString(R.string.logout)
+            navigationViewLogout.title = getString(R.string.logout)
+            navigationViewLogout.icon=resources.getDrawable(R.drawable.login_out)
             homeFragment?.refreshData()
         }
     }
@@ -290,6 +270,15 @@ class MainActivity : BaseActivity() {
                     currentIndex = R.id.navigation_type
                     true
                 }
+
+                R.id.navigation_hot -> {
+                    if (currentIndex == R.id.navigation_hot) {
+                        commonUseFragment?.smoothScrollToPosition()
+                    }
+                    currentIndex = R.id.navigation_hot
+                    true
+                }
+
                 else -> {
                     false
                 }
@@ -315,6 +304,19 @@ class MainActivity : BaseActivity() {
                 R.id.nav_about -> {
                     Intent(this, AboutActivity::class.java).run {
                         startActivity(this)
+                    }
+                }
+                R.id.navigationViewLogout -> {
+                    if (!isLogin) {
+                        Intent(this@MainActivity, LoginActivity::class.java).run {
+                            startActivityForResult(this, Constant.MAIN_REQUEST_CODE)
+                        }
+                    } else {
+                        Preference.clear()
+                        navigationViewUsername.text = getString(R.string.not_login)
+                        title = getString(R.string.goto_login)
+                        navigationViewLogout.icon=resources.getDrawable(R.drawable.login_in)
+                        homeFragment?.refreshData()
                     }
                 }
             }

@@ -206,6 +206,11 @@ class CommonUseFragment : BaseFragment(), CommonUseFragmentView {
     }
 
     /**
+     * scroll to top
+     */
+    fun smoothScrollToPosition() = commonRecyclerView.scrollToPosition(0)
+
+    /**
      * refresh
      */
     fun refreshData() {

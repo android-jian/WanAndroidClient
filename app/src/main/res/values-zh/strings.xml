@@ -6,9 +6,10 @@
     <string name="navigation_drawer_close">Close navigation drawer</string>
     <!-- home -->
     <string name="title_home">首页</string>
+    <string name="title_hot">热搜</string>
     <string name="title_dashboard">知识体系</string>
     <string name="title_name">我的</string>
-    <string name="hot_title">Hot</string>
+    <string name="hot_title">热搜</string>
     <!--no data-->
     <string name="no_data">这里空空的…</string>
     <string name="get_data_error">获取数据失败</string>
@@ -62,6 +63,7 @@
     <string name="my_bookmark">我的书签</string>
     <string name="my_like">我喜欢的</string>
     <string name="my_about">关于我们</string>
+    <string name="login_out">退出</string>
     <string name="about_content"><![CDATA[
         <h2>网站内容</h2>
         <p>\t\t本网站每天新增20~30篇优质文章，并加入到现有分类中，力求整理出一份优质而又详尽的知识体系，闲暇时间不妨上来学习下知识；除此以外，并为大家提供平时开发过程中常用的工具以及常用的网址导航。</p>

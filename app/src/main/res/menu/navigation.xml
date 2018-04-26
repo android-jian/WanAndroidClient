@@ -7,6 +7,11 @@
         android:title="@string/title_home"/>
 
     <item
+        android:id="@+id/navigation_hot"
+        android:icon="@drawable/ic_action_hot"
+        android:title="@string/title_hot"/>
+
+    <item
         android:id="@+id/navigation_type"
         android:icon="@drawable/ic_dashboard_black_24dp"
         android:title="@string/title_dashboard"/>
