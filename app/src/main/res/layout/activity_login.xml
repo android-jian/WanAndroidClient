@@ -56,33 +56,36 @@
 
     </android.support.design.widget.TextInputLayout>
 
-    <TableRow
+    <LinearLayout
         android:id="@+id/buttonLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/passwordLayout"
         android:layout_marginTop="16dp"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:gravity="center_horizontal">
 
         <Button
             android:id="@+id/register"
-            style="?android:textAppearanceSmall"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
+            android:layout_width="100dp"
+            android:layout_height="38dp"
             android:text="@string/login_register"
-            android:textStyle="bold" />
+            android:textColor="#FFFFFF"
+            android:background="@drawable/bg_login"
+            android:gravity="center"
+            android:layout_marginRight="20dp"/>
 
         <Button
             android:id="@+id/login"
-            style="?android:textAppearanceSmall"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
+            android:layout_width="100dp"
+            android:layout_height="38dp"
             android:text="@string/login_login"
-            android:textStyle="bold" />
+            android:textColor="#FFFFFF"
+            android:background="@drawable/bg_login"
+            android:gravity="center"
+            android:layout_marginLeft="20dp"/>
 
-    </TableRow>
+    </LinearLayout>
 
 
     <ProgressBar

@@ -321,7 +321,7 @@ class MainActivity : BaseActivity() {
                     } else {
                         Preference.clear()
                         navigationViewUsername.text = getString(R.string.not_login)
-                        title = getString(R.string.goto_login)
+                        navigationViewLogout.title = getString(R.string.goto_login)
                         navigationViewLogout.icon=resources.getDrawable(R.drawable.login_in)
                         homeFragment?.refreshData()
                     }
