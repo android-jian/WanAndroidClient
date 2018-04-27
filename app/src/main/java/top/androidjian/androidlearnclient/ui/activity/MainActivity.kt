@@ -1,6 +1,7 @@
 package top.androidjian.androidlearnclient.ui.activity
 
 import Constant
+import android.content.DialogInterface
 import android.content.Intent
 import android.os.Bundle
 import android.support.design.widget.BottomNavigationView
@@ -9,6 +10,7 @@ import android.support.v4.app.Fragment
 import android.support.v4.app.FragmentTransaction
 import android.support.v4.view.GravityCompat
 import android.support.v7.app.ActionBarDrawerToggle
+import android.support.v7.app.AlertDialog
 import android.support.v7.widget.AppCompatButton
 import android.view.Menu
 import android.view.MenuItem
@@ -21,6 +23,8 @@ import top.androidjian.androidlearnclient.base.Preference
 import top.androidjian.androidlearnclient.ui.fragment.CommonUseFragment
 import top.androidjian.androidlearnclient.ui.fragment.HomeFragment
 import top.androidjian.androidlearnclient.ui.fragment.TypeFragment
+import android.widget.Toast
+import top.androidjian.androidlearnclient.util.ClearDataUtil
 
 /**
  * 主界面
@@ -301,6 +305,9 @@ class MainActivity : BaseActivity() {
                         startActivityForResult(this, Constant.MAIN_LIKE_REQUEST_CODE)
                     }
                 }
+                R.id.nav_clear -> {
+                    showDataClearDialog()
+                }
                 R.id.nav_about -> {
                     Intent(this, AboutActivity::class.java).run {
                         startActivity(this)
@@ -323,4 +330,19 @@ class MainActivity : BaseActivity() {
             drawerLayout.closeDrawer(GravityCompat.START)
             true
         }
+
+    private fun showDataClearDialog(){
+        val dialog = AlertDialog.Builder(this)
+                .setTitle(getString(R.string.data_clear_title))
+                .setMessage(getString(R.string.data_current)+ClearDataUtil.getTotalCacheSize(applicationContext))
+                .setNegativeButton(getString(R.string.cancel), DialogInterface.OnClickListener { dialog, which ->
+                    dialog.dismiss()
+                })
+                .setPositiveButton(getString(R.string.confirm), DialogInterface.OnClickListener { dialog, which ->
+                    ClearDataUtil.clearAllCache(applicationContext)
+                    Toast.makeText(this@MainActivity, getString(R.string.data_cleard), Toast.LENGTH_SHORT).show()
+                    dialog.dismiss()
+                }).create()
+        dialog.show()
+    }
 }
