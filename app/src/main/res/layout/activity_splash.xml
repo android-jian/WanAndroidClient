@@ -1,24 +1,45 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:gravity="center"
     android:background="@color/white">
 
     <ImageView
-        android:layout_width="wrap_content"
+        android:layout_width="140dp"
+        android:layout_height="120dp"
+        android:src="@drawable/splash_icon"
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="20dp"/>
+
+    <ImageView
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_alignParentBottom="true"
+        android:src="@drawable/logo_03"/>
+
+    <ImageView
+        android:layout_width="200dp"
         android:layout_height="wrap_content"
-        android:src="@drawable/splash_icon"/>
+        android:src="@drawable/pic"
+        android:layout_centerInParent="true"/>
+
+    <ImageView
+        android:layout_width="60dp"
+        android:layout_height="80dp"
+        android:src="@drawable/logo_02"
+        android:layout_marginTop="100dp"
+        android:layout_marginLeft="20dp"/>
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="@dimen/sp_30"
+        android:textSize="@dimen/sp_48"
         android:text="Hello world"
-        android:layout_marginTop="15dp"
-        android:textColor="@color/colorPrimary"/>
+        android:textColor="@color/colorPrimary"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="80dp"/>
 
-</LinearLayout>
+</RelativeLayout>
